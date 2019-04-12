@@ -1,0 +1,94 @@
+#+title: Programacion Lineal 
+#+author: Daniel Sánchez
+ 
+#+Options: H:2 
+
+#+latex_header: \usepackage{listings}
+
+
+
+* Teoria 
+** Motivacion 
+
+El objetivo de la programacion lineal es maximizar funciones lineales
+sobre dominios convexos, es decir, definidos sobre renglones dadas por desigualdades.
+
+[[file:programacion-lineal1.png]]
+
+** Ejemplos 
+
+- El problema de la dieta2
+- Optimizacion de lugares en una excursion
+- Escoger objetos optimos para un campamento
+- EL problema del flujo maximo 
+
+** Convexidad 
+
+Un conjunto \(X\) es *convexo* si para todo \(x,y\in X  \) y \(t\in 
+[0,1]  \) se tiene que \(tx+(1-t)y\in X \)
+n
+
+** El Metodo SImplex 
+
+
+* Herramientas computacionales
+
+** Emacs
+
+| C-X C-S         | Salvar archivo          |
+| C-x C-F         | Abrir archivo           |
+| M-X             | Formatear el parrafo    |
+| C-X d           | Editar directorios      |
+| C-G             | Salir                   |
+| C-X 1           | Divide la pantalla en 1 |
+| C-X 2           | Divide en horizontal    |
+| C-X 3           | Divide en  vertical     |
+| M-W             | Copiar la region        |
+| C-w             | Borrar la region        |
+| Shift y flechas | Seleccionar la region   |
+| C-y             | Pegar la region         |
+| C-x b           |                         |
+
+*** Org mode
+| C-c C-c | corre un bloque de codigo  |
+|         |                            |
+
+** Git 
+*** Github en la terminal 
+*** Github
+** Python
+*** EL lenguaje de Python
+
+En el lenguaje Python podemos hacer operaciones
+
+#+begin_src python :session
+2+2
+
+#+end_src
+
+#+RESULTS:
+: 4
+
+También podemos usar la biblioteca pulp. Por ejemplo encontramos el máximo de \(-4x+y\) sujeto a \(x+y\leq\)
+
+#+begin_src python :session
+from pulp import *
+x = LpVariable("x", 0, 3)
+y = LpVariable("y", 0, 1)
+prob = LpProblem("myProblem", LpMinimize)
+prob += x + y <= 2
+prob += -4*x + y
+status = prob.solve()
+value(x), value(y),value(prob.objective)
+
+#+end_src
+
+#+RESULTS:
+| 2.0 | 0.0 | -8.0 |
+
+
+*** Jupyter
+** Latex 
+
+
+
